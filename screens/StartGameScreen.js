@@ -1,4 +1,4 @@
-import { TextInput, Pressable, View } from "react-native";
+import { TextInput, View } from "react-native";
 
 const StartGameScreen = () => {
   return (
