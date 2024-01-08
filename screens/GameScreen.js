@@ -7,9 +7,7 @@ const GameScreen = () => {
       <View>
         <Text>Higher or Lower?</Text>
       </View>
-      <View>
-        {/* LOG ROUNDS */}
-        </View>
+      <View>{/* LOG ROUNDS */}</View>
     </View>
   );
 };
@@ -17,7 +15,7 @@ const GameScreen = () => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    padding: 12,
+    padding: 24,
   },
 });
 
