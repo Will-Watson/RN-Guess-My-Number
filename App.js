@@ -13,11 +13,24 @@ export default function App() {
 
   const pickedNumberHandler = (pickedNumber) => {
     setUserNumber(pickedNumber);
+    setGameIsOver(false);
   };
 
   const gameOverHandler = () => {
     setGameIsOver(true);
   };
+
+  let screen = <StartGameScreen onPickNumber={pickedNumberHandler} />;
+
+  if (userNumber && !gameIsOver) {
+    screen = (
+      <GameScreen userNumber={userNumber} onGameOver={gameOverHandler} />
+    );
+  }
+
+  if (userNumber && gameIsOver) {
+    screen = <GameOverScreen />;
+  }
 
   return (
     <LinearGradient
@@ -30,14 +43,7 @@ export default function App() {
         style={styles.rootScreen}
         imageStyle={styles.backgroundImage}
       >
-        <SafeAreaView style={styles.rootScreen}>
-          {userNumber && !gameIsOver ? (
-            <GameScreen userNumber={userNumber} onGameOver={gameOverHandler}/>
-          ) : (
-            <StartGameScreen onPickNumber={pickedNumberHandler} />
-          )}
-          {gameIsOver && userNumber && <GameOverScreen />}
-        </SafeAreaView>
+        <SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>
       </ImageBackground>
     </LinearGradient>
   );
