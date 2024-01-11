@@ -88,9 +88,6 @@ const GameScreen = ({ userNumber, onGameOver }) => {
           </View>
         </View>
       </Card>
-      {/* <View>
-        {guessRounds.map(guessRound => <Text key={guessRound}>{guessRound}</Text>)}
-      </View> */}
       <View style={styles.listContainer}>
         <FlatList
           keyExtractor={(item) => item}
@@ -124,7 +121,7 @@ const styles = StyleSheet.create({
   listContainer: {
     flex: 1,
     padding: 16,
-  }
+  },
 });
 
 export default GameScreen;
