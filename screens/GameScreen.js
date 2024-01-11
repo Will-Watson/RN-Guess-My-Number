@@ -29,7 +29,7 @@ const GameScreen = ({ userNumber, onGameOver }) => {
 
   useEffect(() => {
     if (currentGuess === userNumber) {
-      onGameOver();
+      onGameOver(guessRounds.length);
     }
   }, [currentGuess, userNumber, onGameOver]);
 
@@ -91,16 +91,18 @@ const GameScreen = ({ userNumber, onGameOver }) => {
       {/* <View>
         {guessRounds.map(guessRound => <Text key={guessRound}>{guessRound}</Text>)}
       </View> */}
-      <FlatList
-        keyExtractor={(item) => item}
-        data={guessRounds}
-        renderItem={(itemData) => (
-          <GuessLogItem
-            roundNumber={guessRounds.length - itemData.index}
-            guess={itemData.item}
-          />
-        )}
-      />
+      <View style={styles.listContainer}>
+        <FlatList
+          keyExtractor={(item) => item}
+          data={guessRounds}
+          renderItem={(itemData) => (
+            <GuessLogItem
+              roundNumber={guessRounds.length - itemData.index}
+              guess={itemData.item}
+            />
+          )}
+        />
+      </View>
     </View>
   );
 };
@@ -119,6 +121,10 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flex: 1,
   },
+  listContainer: {
+    flex: 1,
+    padding: 16,
+  }
 });
 
 export default GameScreen;
