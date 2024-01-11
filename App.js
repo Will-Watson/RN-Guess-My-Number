@@ -2,7 +2,7 @@ import { StyleSheet, ImageBackground, SafeAreaView } from 'react-native';
 import { useState } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useFonts } from 'expo-font';
-import { AppLoading } from 'expo-app-loading';
+import AppLoading from 'expo-app-loading';
 
 import StartGameScreen from './screens/StartGameScreen';
 import GameScreen from './screens/GameScreen';
