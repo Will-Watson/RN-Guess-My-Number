@@ -7,6 +7,7 @@ import NumberContainer from '../components/game/NumberContainer';
 import PrimaryButton from '../components/ui/PrimaryButton';
 import Card from '../components/ui/Card';
 import InstructionText from '../components/ui/InstructionText';
+import GuessLogItem from '../components/game/GuessLogItem';
 
 let minBoundary = 1;
 let maxBoundary = 100;
@@ -94,11 +95,12 @@ const GameScreen = ({ userNumber, onGameOver }) => {
         keyExtractor={(item) => item}
         data={guessRounds}
         renderItem={(itemData) => (
-          <View style={styles.listItem}>
-            <Text>#{guessRounds.length - itemData.index}</Text>
-            <Text>{itemData.item}</Text>
-          </View>
-        )} />
+          <GuessLogItem
+            roundNumber={guessRounds.length - itemData.index}
+            guess={itemData.item}
+          />
+        )}
+      />
     </View>
   );
 };
